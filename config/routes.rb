@@ -7,4 +7,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :posts do
+    collection do
+      get :index_with_last_two_comments
+    end
+  end
+
+
 end
