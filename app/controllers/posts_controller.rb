@@ -66,7 +66,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-    post.account_id = params[:account_id]  # Adjust as per your user identification logic
+    post.account_id = post_params[:account_id]
 
     if post.save
       render json: post, status: :created
@@ -78,6 +78,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:caption, :image)
+    params.require(:post).permit(:caption, :image, :account_id)
   end
 end

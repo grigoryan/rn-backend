@@ -69,7 +69,9 @@ GEM
     bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
     debug (1.9.0)
@@ -96,6 +98,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
+    mini_magick (4.9.5)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
     minitest (5.20.0)
@@ -114,12 +117,18 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.5.3)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     psych (5.1.1.1)
       stringio
     puma (5.6.7)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.8)
+    rack-cors (1.0.3)
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (7.0.8)
@@ -153,8 +162,16 @@ GEM
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
+    redis (4.8.1)
+    redis-client (0.19.0)
+      connection_pool
     reline (0.4.1)
       io-console (~> 0.5)
+    sidekiq (7.2.0)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     sqlite3 (1.6.9)
       mini_portile2 (~> 2.8.0)
     stringio (3.1.0)
@@ -174,9 +191,14 @@ DEPENDENCIES
   bootsnap
   debug
   faker
+  mini_magick
   pg (~> 1.2, >= 1.2.3)
+  pry-rails
   puma (~> 5.0)
+  rack-cors
   rails (~> 7.0.8)
+  redis (~> 4.0)
+  sidekiq
   sqlite3 (~> 1.4)
   tzinfo-data
 
