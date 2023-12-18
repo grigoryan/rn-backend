@@ -1,11 +1,11 @@
 # README
 
 
-#Prerequisites:
+# Prerequisites:
 - Docker
 - Postgres
 
-#How to run:
+# How to run:
 - Clone the repository
 - Run `docker-compose up` in the root directory
 - Run `docker-compose exec web rails db:migrate` to run the migrations
