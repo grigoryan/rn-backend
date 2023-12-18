@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+#Prerequisites:
+- Docker
+- Postgres
 
-* Ruby version
+#How to run:
+- Clone the repository
+- Run `docker-compose up` in the root directory
+- Run `docker-compose exec web rails db:migrate` to run the migrations
+- Run `docker-compose exec web rails db:seed` to run the seed script
 
-* System dependencies
+# API Endpoints:
+- GET /posts/index_with_last_two_comments?page=:page
+- GET /posts/:id
+- POST /posts
+  - **post[caption]**: string, 
+  - **post[account_id]**: integer, 
+  - **post[image]**: file
+- POST /accounts/:account_id/posts/:post_id/comments
+  - **comment[content]**: string
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For easier testing of the upload functionality, I have added a frontend app https://github.com/grigoryan/rn-frontend that runs on 3001 port on localhost 
