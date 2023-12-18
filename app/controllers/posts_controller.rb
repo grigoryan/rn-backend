@@ -59,9 +59,10 @@ class PostsController < ApplicationController
     render json: posts_with_comments
   end
 
+  # This method may be optimized in future
   def show
-    post = Post.find(params[:id])
-    render json: post, include: :comments
+    post = Post.includes(:account, comments: :account).find(params[:id])
+    render json: post, include: [:account, { comments: { include: :account } }]
   end
 
   def create
